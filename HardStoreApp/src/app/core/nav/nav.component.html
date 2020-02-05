@@ -1,0 +1,21 @@
+<nav class="navbar">
+    <img src="./hs-logo.png" routerLink="/">
+
+    <ul>
+        <li>
+            <a routerLink="/">Home</a>
+        </li>
+        <li *ngIf="!user">
+            <a routerLink="/login">Login</a>
+        </li>
+        <li *ngIf="!user">
+            <a routerLink="/register">Register</a>
+        </li>
+        <li *ngIf="user">
+            <a routerLink="/user/profile">Profile</a>
+        </li>
+        <li *ngIf="user">
+            <a routerLink="/logout" (click)="logout()">Logout</a>
+        </li>
+    </ul>
+</nav>
