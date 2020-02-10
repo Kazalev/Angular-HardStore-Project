@@ -9,7 +9,7 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [NavComponent, FooterComponent],
   imports: [
     CommonModule,
-    RouterModule,
+    RouterModule
   ],
   exports: [
     NavComponent,

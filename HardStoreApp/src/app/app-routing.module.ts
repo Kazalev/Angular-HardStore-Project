@@ -1,10 +1,12 @@
-import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './auth/login/login.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './home/landing/home.component';
 import { ProfileComponent } from './user/profile/profile.component';
+import { AddProductComponent } from './products/add-product/add-product.component';
+import { UpdateProductComponent } from './products/update-product/update-product.component';
+import { AllProductsComponent } from './products/all-products/all-products.component';
 
 
 const routes: Routes = [
@@ -23,8 +25,20 @@ const routes: Routes = [
         component: LoginComponent
     },
     {
-        path: `user/profile`,
+        path: 'user/profile',
         component: ProfileComponent
+    },
+    {
+        path: "addProduct",
+        component: AddProductComponent
+    },
+    {
+        path: "products",
+        component: AllProductsComponent
+    },
+    {
+        path: "updateProduct/:id",
+        component: UpdateProductComponent
     },
     {
         path: '**', // In case of no match of above go to NotFound Page

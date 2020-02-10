@@ -1,0 +1,51 @@
+<h2>Some Products from DB</h2>
+<div class="row">
+    <div class="col-md-3" *ngFor="let product of products">
+        <div class="card mb-3" style="height: 500px;">
+            <div class="heart" name="add-favorite">
+                <i class="fas fa-heart"></i>
+                <i (dblclick)="deleteProduct($event, product)" class="fas fa-trash-alt"></i>
+                <i (dblclick)="updateProduct(product)" routerLink="updateProduct/{{product.id}}"
+                    class="fa fa-pencil"></i>
+            </div>
+            <i routerLink="updateProduct">
+                <img class="pt-4 pl-4 pr-4" style="height: 200px; width: 100%; display: block;" [src]="product.imgURL"
+                    alt="Card image">
+            </i>
+            <div class="card-body">
+                <p class="card-justify font-weight-bold text-center">{{product.name}}</p>
+            </div>
+            <div *ngIf="product.quantity === 0; then ngOut else ngIn"></div>
+
+            <ng-template #ngIn>
+                <div *ngIf="product.quantity <= 3; then ngLast else ngInText"></div>
+
+                <ng-template #ngLast>
+                    <h6 class="text-center" #ngIn style="color: orange">Last {{product.quantity}} products</h6>
+                </ng-template>
+
+                <ng-template #ngInText>
+                    <h6 class="text-center" #ngIn style="color: green;">{{product.quantity}} in stock</h6>
+                </ng-template>
+
+            </ng-template>
+
+            <ng-template #ngOut>
+                <h6 class="text-center" #ngOut style="color: red;">Out of stock</h6>
+            </ng-template>
+
+            <div class="card-footer text-center">
+                <p style="color: green;">{{product.price}} лв.</p>
+                <span> <i class="fas fa-shopping-cart"></i> </span>
+                <button class="btn btn-primary" [id]="product.id" (click)="clickButton()">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #ngProducts>
+    <hr>
+    <h5>There are no products to show.</h5>
+</ng-template>
+
+<!-- *ngIf="products?.length > 0; else  ngProducts" -->

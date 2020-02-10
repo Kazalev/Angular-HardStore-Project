@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-7">
+            <form (ngSubmit)="onSubmit()" class="">
+                <label>Product Name</label>
+                <input class="form-control" type="text" [(ngModel)]="product.name" name="name" placeholder="Name">
+                <label for="exampleSelect1">Select Category</label>
+                <select class="form-control" id="exampleSelect1" [(ngModel)]="product.category" name="category">
+                    <option value="">Please select category</option>
+                    <option>Processors</option>
+                    <option>Video Cards</option>
+                    <option>Monitors</option>
+                    <option>Storage</option>
+                    <option>RAM</option>
+                </select>
+                <label for="exampleFormControlTextarea1">Additional Information</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="product.description" name="description"></textarea>
+                <label>Image URL</label>
+                <input class="form-control" type="text" placeholder="Paste URL here..." [(ngModel)]="product.imgURL" name="imgURL">
+                <label>Quantity</label>
+                <input class="form-control" type="number" placeholder="Quantity"  [(ngModel)]="product.quantity" name="quantity">
+                <label>Price</label>
+                <input class="form-control" type="number" placeholder="Price"  [(ngModel)]="product.price" name="price">
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

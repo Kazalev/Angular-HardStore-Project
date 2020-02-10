@@ -15,6 +15,15 @@
             <a routerLink="/user/profile">Profile</a>
         </li>
         <li *ngIf="user">
+            <a routerLink="/products">Products</a>
+        </li>
+        <li *ngIf="user">
+            <a routerLink="">Favorites</a>
+        </li>
+        <li *ngIf="user">
+            <a routerLink="">My Cart</a>
+        </li>
+        <li *ngIf="user">
             <a routerLink="/logout" (click)="logout()">Logout</a>
         </li>
     </ul>

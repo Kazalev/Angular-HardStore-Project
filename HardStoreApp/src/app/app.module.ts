@@ -13,14 +13,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
+import { ProductsModule } from './products/products.module';
+import { HomeModule } from './home/home.module';
+import { AddProductComponent } from './products/add-product/add-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
-    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +29,8 @@ import { UserModule } from './user/user.module';
     CoreModule,
     FormsModule,
     UserModule,
+    HomeModule,
+    ProductsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
