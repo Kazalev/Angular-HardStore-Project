@@ -1,1 +1,24 @@
-<p>all-products works!</p>
+<div class="row">
+    <div class="col-sm-3 sortBy">
+        <div>
+            <h2>Sort By:</h2>
+            <ul>
+                <li>
+                    <button>Name</button>
+                </li>
+                <li>
+                    <button (click)="sortByPriceUp()">Price Up</button>
+                </li>
+                <li>
+                    <button>Price Down</button>
+                </li>
+                <li>
+                    <button>Something else</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <app-featured-products></app-featured-products>
+    </div>
+</div>

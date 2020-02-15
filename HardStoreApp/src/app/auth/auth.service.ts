@@ -2,18 +2,38 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+  private _isAuth = false;
+  isAuthChanged = new Subject<boolean>()
+  
   newUser: any;
 
   constructor(
     private afAuth: AngularFireAuth,
     private db: AngularFirestore,
     private router: Router) { }
+
+    get isAuth() {
+      return this._isAuth;
+    }
+
+    initializeAuthState() {
+      this.afAuth.authState.subscribe((userState) => {
+        if(userState) {
+          this._isAuth = true;
+          this.isAuthChanged.next(true);
+        } else {
+          this._isAuth = false;
+          this.isAuthChanged.next(false);
+        }
+      });
+    }
 
     getUserState(){
       return this.afAuth.authState;
@@ -62,6 +82,10 @@ export class AuthService {
     }
 
     logout(){
-      return this.afAuth.auth.signOut();
+      return this.afAuth.auth.signOut().then(() =>{
+        this.router.navigate(['/']);
+      }).catch(err => {
+        console.log(err);
+      });
     }
 }

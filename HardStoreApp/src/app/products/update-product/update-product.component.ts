@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductsService } from 'src/app/products/services/products.service';
 import { Product } from 'src/app/products/models/products';
-import { FeaturedProductsComponent } from '../featured-products/featured-products.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-product',
@@ -9,26 +9,18 @@ import { FeaturedProductsComponent } from '../featured-products/featured-product
   styleUrls: ['./update-product.component.scss']
 })
 export class UpdateProductComponent implements OnInit {
-  
-  product: Product = {
-    name: 'Update item',
-    category: '',
-    description: 'This is updated !',
-    imgURL: '',
-    quantity: null,
-    price: null
-  }
 
-  constructor( private productService: ProductsService ) { }
+  message: any;
+
+  constructor(private productService: ProductsService) { }
 
   ngOnInit() {
-    console.log(this.product);
+    this.productService.currentMessage.subscribe(message => this.message = message)
   }
 
-  updateProduct(product){
-    if(this.product.name != "" && this.product.description != ""){
-      this.productService.updateProduct(this.product);
-      this.product.name = '';
-    }
+  updateProduct(message){
+    console.log(message);
+    this.productService.editProduct(this.message);
   }
+  
 }

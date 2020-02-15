@@ -11,49 +11,58 @@
                         <div class="row">
                             <div class="col-md-6 mb-2">
                                 <input ngModel #firstName="ngModel" type="text" name="firstName" class="form-control"
-                                    placeholder="First name">
+                                    placeholder="First name" required autofocus>
+                                <p class="error-message" *ngIf="firstName.invalid && firstName.touched">Please enter
+                                    your first name!</p>
                             </div>
                             <div class="col-md-6 mb-2">
                                 <input ngModel #lastName="ngModel" type="text" name="lastName" class="form-control"
-                                    placeholder="Last name">
+                                    placeholder="Last name" required>
+                                <p class="error-message" *ngIf="lastName.invalid && lastName.touched">Please enter your
+                                    last name!</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 mb-2">
                                 <input ngModel #email="ngModel" type="email" name="email" class="form-control"
-                                    placeholder="Email">
+                                    [pattern]="emailRegEx" placeholder="Email" required>
+                                <p class="error-message" *ngIf="email.invalid && email.touched">Please enter valid
+                                    email!</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-2">
                                 <input ngModel #age="ngModel" type="age" name="age" class="form-control"
-                                    placeholder="Age">
+                                    placeholder="Age" required>
+                                <p class="error-message" *ngIf="age.invalid && age.touched">Please enter your
+                                    age!</p>
                             </div>
                             <div class="col-md-6 mb-2">
                                 <input ngModel #address="ngModel" type="text" name="address" class="form-control"
-                                    placeholder="Address">
+                                    placeholder="Address" required>
+                                <p class="error-message" *ngIf="address.invalid && address.touched">Please enter your
+                                    address!</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 mb-2">
                                 <input ngModel #password="ngModel" type="password" name="password" class="form-control"
-                                    placeholder="Password">
+                                    placeholder="Password" required minlength="6">
+                                <p class="error-message" *ngIf="password.invalid && password.touched">Password must be
+                                    at least 6 symbols!</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 mb-2">
-                                <input type="password" name="password" class="form-control"
-                                    placeholder="Confirm Password">
+                                <input ngModel #rePassword="ngModel" type="password" name="rePassword"
+                                    class="form-control" placeholder="Confirm Password" required minlength="6">
                             </div>
                         </div>
-                        <!-- <div class="row">
-                            <div class="col-md-12 mb-2">
-                                <button class="btn btn-primary" type="submit">Submit</button>
-                            </div>
-                        </div> -->
-                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                        <button [disabled]="userRegForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase"
+                            type="submit">Sign in</button>
                         <hr class="my-4">
-                        <p class="text-center">Have an account? <a routerLink="/login" class="font-italic">Log In</a> </p>
+                        <p class="text-center">Have an account? <a routerLink="/login" class="font-italic">Log In</a>
+                        </p>
                     </form>
                 </div>
             </div>

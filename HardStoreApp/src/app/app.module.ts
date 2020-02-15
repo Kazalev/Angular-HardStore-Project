@@ -16,12 +16,15 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { UserModule } from './user/user.module';
 import { ProductsModule } from './products/products.module';
 import { HomeModule } from './home/home.module';
-import { AddProductComponent } from './products/add-product/add-product.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
+    FavoritesComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

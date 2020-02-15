@@ -1,5 +1,8 @@
-<div class="container">
-    <div class="row" style="background-color: grey;">
-        <h2>Logged in as: {{user?.email}} <br> {{user?.uid}}</h2>
-    </div>
+<div class="container" style="background-color: lightgrey;">
+    <p>Logged in as: {{user?.displayName}}</p>
+    <p>User ID: {{user?.uid}}</p>
+    <p>User Email: {{user?.email}}</p>
+
+    <button class="custom-button btn btn-success mr-2" routerLink="/addProduct">Add Product</button>
+    <button class="custom-button btn btn-danger mr-2" (click)="logout()">Logout</button>
 </div>

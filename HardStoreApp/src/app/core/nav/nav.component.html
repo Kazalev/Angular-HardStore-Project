@@ -12,16 +12,16 @@
             <a routerLink="/register">Register</a>
         </li>
         <li *ngIf="user">
-            <a routerLink="/user/profile">Profile</a>
+            <a [routerLink]="['/user/profile', user.email]">Profile</a>
         </li>
         <li *ngIf="user">
             <a routerLink="/products">Products</a>
         </li>
         <li *ngIf="user">
-            <a routerLink="">Favorites</a>
+            <a routerLink="/favorites">Favorites</a>
         </li>
         <li *ngIf="user">
-            <a routerLink="">My Cart</a>
+            <a routerLink="/cart">MyCart</a>
         </li>
         <li *ngIf="user">
             <a routerLink="/logout" (click)="logout()">Logout</a>

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestoreCollection, AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { Product } from '../models/products';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-all-products',
@@ -7,9 +12,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllProductsComponent implements OnInit {
 
-  constructor() { }
+  productsCollection: AngularFirestoreCollection<Product>;
+
+  constructor(private productService: ProductsService) { }
 
   ngOnInit() {
   }
 
+  sortByPriceUp(){
+  }
 }

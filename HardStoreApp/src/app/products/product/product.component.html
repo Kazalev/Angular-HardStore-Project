@@ -1,0 +1,50 @@
+<div class="card mb-3" style="height: 500px;">
+    <div class="heart" name="add-favorite" *ngIf="user">
+        <i class="fas fa-heart"></i>
+        <i (dblclick)="deleteProduct($event, product)" class="fas fa-trash-alt"></i>
+        <i (click)="newMessage(product)" routerLink="updateProduct/{{product.id}}" class="fa fa-pencil"></i>
+
+        <!-- (dblclick)="updateProduct($event, product)"
+                 <i *ngIf="updateState && productToUpdate.id == product.id" (click)="clearState()" class="fa fa-compress"></i>
+        <div *ngIf="updateState && productToUpdate.id == product.id">
+            <form (ngSubmit)="editProduct(product)">
+                <input class="form-control" type="text" [(ngModel)]="product.name" name="name" placeholder="Name">
+                <input type="submit" value="Update Product" class="btn btn-primary">
+            </form>
+            <app-update-product [product]="product"></app-update-product>
+        </div> -->
+
+    </div>
+    <i routerLink="product/details/{{product.id}}" (click)="productDetails($event, product)">
+        <img class="pt-4 pl-4 pr-4" style="height: 200px; width: 100%; display: block;" [src]="product.imgURL"
+            alt="Card image">
+    </i>
+    <div class="card-body">
+        <p routerLink="product/details/{{product.id}}" class="card-justify font-weight-bold text-center">
+            {{product.name}}</p>
+    </div>
+    <div *ngIf="product.quantity === 0; then ngOut else ngIn"></div>
+
+    <ng-template #ngIn>
+        <div *ngIf="product.quantity <= 3; then ngLast else ngInText"></div>
+
+        <ng-template #ngLast>
+            <h6 class="text-center" #ngIn style="color: orange">Last {{product.quantity}} products</h6>
+        </ng-template>
+
+        <ng-template #ngInText>
+            <h6 class="text-center" #ngIn style="color: green;">{{product.quantity}} in stock</h6>
+        </ng-template>
+
+    </ng-template>
+
+    <ng-template #ngOut>
+        <h6 class="text-center" #ngOut style="color: red;">Out of stock</h6>
+    </ng-template>
+
+    <div class="card-footer text-center">
+        <p style="color: green;">{{product.price}} лв.</p>
+        <button class="btn" [id]="product.id" (click)="clickButton()">
+            <i class="fas fa-shopping-cart"></i> Add to Cart</button>
+    </div>
+</div>
