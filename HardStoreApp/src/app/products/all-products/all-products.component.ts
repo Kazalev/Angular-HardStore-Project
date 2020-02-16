@@ -17,8 +17,6 @@ export class AllProductsComponent implements OnInit {
   constructor(private productService: ProductsService) { }
 
   ngOnInit() {
-  }
-
-  sortByPriceUp(){
+    
   }
 }

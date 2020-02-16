@@ -11,6 +11,7 @@ import { ProductComponent } from './products/product/product.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { CartComponent } from './cart/cart.component';
 import { DetailsProductComponent } from './products/details-product/details-product.component';
+import { LinkGuardGuard } from './guards/link-guard.guard';
 
 
 const routes: Routes = [
@@ -30,10 +31,12 @@ const routes: Routes = [
     },
     {
         path: 'user/profile/:user.email',
+        canActivate: [LinkGuardGuard],
         component: ProfileComponent
     },
     {
         path: "addProduct",
+        canActivate: [LinkGuardGuard],
         component: AddProductComponent
     },
     {
@@ -42,10 +45,12 @@ const routes: Routes = [
     },
     {
         path: "updateProduct/:id",
+        canActivate: [LinkGuardGuard],
         component: UpdateProductComponent
     },
     {
         path: "products/updateProduct/:id",
+        canActivate: [LinkGuardGuard],
         component: UpdateProductComponent
     },
     {
@@ -62,10 +67,12 @@ const routes: Routes = [
     },
     {
         path: "favorites",
+        canActivate: [LinkGuardGuard],
         component: FavoritesComponent
     },
     {
         path: "cart",
+        canActivate: [LinkGuardGuard],
         component: CartComponent
     },
     {

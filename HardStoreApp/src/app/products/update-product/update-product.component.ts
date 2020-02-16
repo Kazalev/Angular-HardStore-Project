@@ -1,26 +1,24 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductsService } from 'src/app/products/services/products.service';
-import { Product } from 'src/app/products/models/products';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-product',
   templateUrl: './update-product.component.html',
-  styleUrls: ['./update-product.component.scss']
+  styleUrls: ['./update-product.component.scss', '../../../error.styles.scss']
 })
 export class UpdateProductComponent implements OnInit {
 
-  message: any;
+  passProductInfo: any;
 
   constructor(private productService: ProductsService) { }
 
   ngOnInit() {
-    this.productService.currentMessage.subscribe(message => this.message = message)
+    this.productService.currentPassProductInfo.subscribe(passProductInfo => this.passProductInfo = passProductInfo)
   }
 
-  updateProduct(message){
-    console.log(message);
-    this.productService.editProduct(this.message);
+  updateProduct(passProductInfo){
+    console.log(passProductInfo);
+    this.productService.editProduct(this.passProductInfo);
   }
   
 }

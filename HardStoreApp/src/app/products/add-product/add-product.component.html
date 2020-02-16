@@ -18,6 +18,7 @@
                     <option value="Monitors">Monitors</option>
                     <option value="Storage">Storage</option>
                     <option value="RAM">RAM</option>
+                    <option value="Smartphones">Smartphones</option>
                 </select>
                 <p class="error-message" *ngIf="selectCat.invalid && selectCat.touched">Please Select Category!
                 </p>
@@ -26,6 +27,18 @@
                     #description="ngModel" name="description" minlength='20' required></textarea>
                 <p class="error-message" *ngIf="description.invalid && description.touched">Please enter description
                     more than 20 symbols!
+                </p>
+                <label>Brand</label>
+                <input class="form-control" type="text" #brand="ngModel" placeholder="Samsung, Huawei... etc."
+                    [(ngModel)]="product.brand" name="brand" required>
+                <p class="error-message" *ngIf="brand.invalid && brand.touched">
+                    Please Enter a Brand! 
+                </p>
+                <label>Product Code:</label>
+                <input class="form-control" type="text" #productCode="ngModel" placeholder="Samsung, Huawei... etc."
+                    [(ngModel)]="product.productCode" name="productCode" required>
+                <p class="error-message" *ngIf="productCode.invalid && productCode.touched">
+                    Please Enter a Product Code! 
                 </p>
                 <label>Image URL</label>
                 <input class="form-control" type="text" #imgUrl="ngModel" placeholder="https://..."

@@ -18,6 +18,7 @@ import { ProductsModule } from './products/products.module';
 import { HomeModule } from './home/home.module';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { CartComponent } from './cart/cart.component';
+import { LinkGuardGuard } from './guards/link-guard.guard';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { CartComponent } from './cart/cart.component';
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [LinkGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

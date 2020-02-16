@@ -18,17 +18,17 @@ export class ProductsService {
   products: Observable<Product[]>;
   productDoc: AngularFirestoreDocument<Product>;
   
-  private messageSource = new BehaviorSubject('default message');
-  currentMessage = this.messageSource.asObservable();
+  private passProductInfoSource = new BehaviorSubject('default message');
+  currentPassProductInfo = this.passProductInfoSource.asObservable();
 
   constructor(
     public afs: AngularFirestore,
     private router: Router) {
     // this.products = this.afs.collection('Products').valueChanges();
 
-      this.productsCollection = this.afs.collection('Products', ref => ref.orderBy('price', 'asc'));
-      this.productsCollection = this.afs.collection('Products', ref => ref.orderBy('price', 'desc'));
-      this.productsCollection = this.afs.collection('Products', ref => ref.orderBy('name', 'asc'));
+    this.productsCollection = this.afs.collection('Products', ref => ref.orderBy('name', 'asc'));
+    this.productsCollection = this.afs.collection('Products', ref => ref.orderBy('price', 'desc'));
+    this.productsCollection = this.afs.collection('Products', ref => ref.orderBy('price', 'asc'));
 
     this.products = this.productsCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
@@ -39,8 +39,8 @@ export class ProductsService {
     }));
   }
 
-  changeMessage(message: any) {
-    this.messageSource.next(message)
+  changeMessage(passProductInfo: any) {
+    this.passProductInfoSource.next(passProductInfo)
   }
 
   getProducts() {

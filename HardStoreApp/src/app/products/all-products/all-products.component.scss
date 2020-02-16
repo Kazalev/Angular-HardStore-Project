@@ -1,11 +1,21 @@
 .sortBy{
     background-color: white;
     border-radius: 6px;
-    height: 200px;
+    height: 300px;
     width: 250px;
 }
 
 .row{
     padding-top: 70px;
     padding-left: 50px;
+}
+
+ul{
+    list-style: none;
+}
+
+button{
+    width: 250px;
+    text-align: center;
+    margin: 10px 0 10px 0;
 }

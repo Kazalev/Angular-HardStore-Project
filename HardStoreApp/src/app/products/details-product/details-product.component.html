@@ -1,7 +1,28 @@
-.<div class="container">
+<div class="container">
     <div class="row">
-        <div class="div">
-            <!-- <h1>{{product.name}}</h1> -->
+        <div class="col-md-5">
+            <img class="pt-4 pl-4 pr-4" style="height: 450px; width: 450px; display: block;"
+                [src]="passProductInfo.imgURL" alt="{{passProductInfo.name}}">
+        </div>
+
+        <div class="col-md-7">
+            <p class="newarrival text-center mt-4">NEW</p>
+            <h2>{{passProductInfo.brand}} {{passProductInfo.name}}</h2>
+            <p>Product Code: <i>{{passProductInfo.productCode}}</i></p>
+            <p class="price">{{passProductInfo.price}} лв.</p>
+            <p><b>In Stock: </b> {{passProductInfo.quantity}}</p>
+            <p><b>Brand: </b> <i><u>{{passProductInfo.brand}}</u></i></p>
+            <p>
+                <details>
+                    <summary><b>Click here for Description</b></summary>
+                    <p>{{passProductInfo.description}}</p>
+                </details>
+            </p>
+            <label>Quantity: </label>
+            <input type="text" value="1">
+            <button type="button" class="btn btn-default cart">Add to cart</button>
         </div>
     </div>
 </div>
+
+<h2>Similar products:</h2>

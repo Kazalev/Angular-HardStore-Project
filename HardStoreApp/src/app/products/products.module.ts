@@ -8,6 +8,7 @@ import { AllProductsComponent } from './all-products/all-products.component';
 import { FeaturedProductsComponent } from './featured-products/featured-products.component';
 import { ProductComponent } from './product/product.component';
 import { DetailsProductComponent } from './details-product/details-product.component';
+import { ShortenPipe } from './shorten.pipe';
 
 
 
@@ -18,7 +19,8 @@ import { DetailsProductComponent } from './details-product/details-product.compo
     AllProductsComponent,
     FeaturedProductsComponent,
     ProductComponent,
-    DetailsProductComponent],
+    DetailsProductComponent,
+    ShortenPipe],
   imports: [
     CommonModule,
     RouterModule,
