@@ -1,24 +1,51 @@
 <div class="row">
     <div class="col-sm-3 sortBy">
         <div>
-            <h2>Sort By:</h2>
-            <ul>
-                <li>
-                    <button class="btn btn-info">Name</button>
-                </li>
-                <li>
-                    <button class="btn btn-info">Price Up</button>
-                </li>
-                <li>
-                    <button class="btn btn-info">Price Down</button>
-                </li>
-                <li>
-                    <button class="btn btn-info">Something else</button>
-                </li>
-            </ul>
+            <h4>Search for Products:</h4>
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
+            <h4>Sort By Category:</h4>
+            <select class="form-control" type="text" name="search" [(ngModel)]="searchText">
+                <option value="Processors">Processors</option>
+                <option value="Video Cards">Video Cards</option>
+                <option value="Monitors">Monitors</option>
+                <option value="Storage">Storage</option>
+                <option value="RAM">RAM</option>
+                <option value="Smartphones">Smartphones</option>
+            </select>
+            <!-- <h4>Price range:</h4>
+            <input type="range" class="custom-range" min="50" max="3000" step="50" [(ngModel)]="searchText"> -->
+            <h4>Sort By Our Brands:</h4>
+            <!-- Group of default radios - option 2 -->
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios"
+                    [(ngModel)]="searchText" value="Samsung">
+                <label class="custom-control-label" for="defaultGroupExample1">Samsung</label>
+            </div>
+            <!-- Group of default radios - option 2 -->
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios"
+                    [(ngModel)]="searchText" value="Huawei">
+                <label class="custom-control-label" for="defaultGroupExample2">Huawei</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios"
+                    [(ngModel)]="searchText" value="Razer">
+                <label class="custom-control-label" for="defaultGroupExample3">Razer</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="defaultGroupExample4" name="groupOfDefaultRadios"
+                    [(ngModel)]="searchText" value="Intel">
+                <label class="custom-control-label" for="defaultGroupExample4">Intel</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="defaultGroupExample5" name="groupOfDefaultRadios"
+                    [(ngModel)]="searchText" value="Nvidia GeForce">
+                <label class="custom-control-label" for="defaultGroupExample5">Nvidia GeForce</label>
+            </div>
         </div>
     </div>
+
     <div class="col-sm-8">
-        <app-featured-products></app-featured-products>
+        <app-featured-products [searchText]="searchText"></app-featured-products>
     </div>
 </div>

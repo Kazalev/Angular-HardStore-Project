@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../models/products';
 import { ProductsService } from '../services/products.service';
 import { Observable } from 'rxjs';
@@ -15,6 +15,8 @@ export class FeaturedProductsComponent implements OnInit {
   products: Product[];
   updateState: boolean = false;
   productToUpdate: Product;
+  @Input('searchText')
+  searchText;
 
   constructor(private productService: ProductsService) { }
 

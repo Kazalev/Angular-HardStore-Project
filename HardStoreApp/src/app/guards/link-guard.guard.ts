@@ -22,8 +22,8 @@ export class LinkGuardGuard implements CanActivate {
 
     if (this.user) { return true; }
 
-    console.log('access denied!');
-    this.route.navigate(['/register']);
+    console.log('Access Denied!');
+    this.route.navigate(['/login']);
     return false;
   }
 

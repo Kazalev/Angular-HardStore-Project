@@ -5,6 +5,9 @@
         <li>
             <a routerLink="/">Home</a>
         </li>
+        <li>
+            <a routerLink="/products">Products</a>
+        </li>
         <li *ngIf="!user">
             <a routerLink="/login">Login</a>
         </li>
@@ -13,9 +16,6 @@
         </li>
         <li *ngIf="user">
             <a [routerLink]="['/user/profile', user.email]">Profile</a>
-        </li>
-        <li *ngIf="user">
-            <a routerLink="/products">Products</a>
         </li>
         <li *ngIf="user">
             <a routerLink="/favorites">Favorites</a>

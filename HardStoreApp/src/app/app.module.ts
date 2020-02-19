@@ -19,6 +19,8 @@ import { HomeModule } from './home/home.module';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { CartComponent } from './cart/cart.component';
 import { LinkGuardGuard } from './guards/link-guard.guard';
+import { ProductTDComponent } from './cart/product-td/product-td.component';
+import { Ng2SearchPipeModule } from 'node_modules/ng2-search-filter/ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { LinkGuardGuard } from './guards/link-guard.guard';
     NotFoundComponent,
     FavoritesComponent,
     CartComponent,
+    ProductTDComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { LinkGuardGuard } from './guards/link-guard.guard';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    Ng2SearchPipeModule
   ],
   providers: [LinkGuardGuard],
   bootstrap: [AppComponent]

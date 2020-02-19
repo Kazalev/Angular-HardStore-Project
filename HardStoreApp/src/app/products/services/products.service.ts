@@ -26,9 +26,9 @@ export class ProductsService {
     private router: Router) {
     // this.products = this.afs.collection('Products').valueChanges();
 
-    this.productsCollection = this.afs.collection('Products', ref => ref.orderBy('name', 'asc'));
     this.productsCollection = this.afs.collection('Products', ref => ref.orderBy('price', 'desc'));
     this.productsCollection = this.afs.collection('Products', ref => ref.orderBy('price', 'asc'));
+    this.productsCollection = this.afs.collection('Products', ref => ref.orderBy('name', 'asc'));
 
     this.products = this.productsCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
@@ -63,7 +63,9 @@ export class ProductsService {
 
   deleteProduct(product: Product){
     this.productDoc = this.afs.doc(`Products/${product.id}`);
-    this.productDoc.delete();
+    this.productDoc.delete().then(() => {
+      this.router.navigate(['/']);
+    });
   }
 
   selectProduct(product: Product){

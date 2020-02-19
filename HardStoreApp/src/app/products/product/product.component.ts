@@ -2,8 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../models/products';
 import { ProductsService } from '../services/products.service';
 import { AuthService } from 'src/app/auth/auth.service';
-import { Users } from 'src/app/auth/users';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product',
@@ -11,7 +9,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-  ;
   user: firebase.User;
   @Input('product')
   product: Product;
@@ -62,11 +59,15 @@ export class ProductComponent implements OnInit {
     this.productService.deleteProduct(product);
   }
 
-  clickButton() {
+  addToCart(passProductInfo: Product) {
+    this.productService.changeMessage(passProductInfo);
   }
 
   newProductInfo(passProductInfo) {
     this.productService.changeMessage(passProductInfo);
   }
 
+  // showToaster(){
+  //   this.toastr.success('Added to Cart');
+  // }
 }

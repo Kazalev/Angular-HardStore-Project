@@ -11,12 +11,11 @@ import { ProductsService } from '../services/products.service';
   styleUrls: ['./all-products.component.scss']
 })
 export class AllProductsComponent implements OnInit {
-
+  searchText;
   productsCollection: AngularFirestoreCollection<Product>;
 
   constructor(private productService: ProductsService) { }
 
-  ngOnInit() {
-    
+  ngOnInit() { 
   }
 }

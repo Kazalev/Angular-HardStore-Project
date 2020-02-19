@@ -6,6 +6,13 @@
         </div>
 
         <div class="col-md-7">
+            <div class="editDelBtn" *ngIf="user?.email == 'kristian.kazalev@abv.bg' ">
+                <button type="button" class="btn btn-warning" (click)="newProductInfo(passProductInfo)"
+                    routerLink="../../../updateProduct/{{passProductInfo.id}}">
+                    <i class="fa fa-pencil"></i> Edit</button>
+                <button type="button" class="btn btn-danger" (click)="deleteProduct(passProductInfo)">
+                    <i class="fas fa-trash-alt"></i> Delete</button>
+            </div>
             <p class="newarrival text-center mt-4">NEW</p>
             <h2>{{passProductInfo.brand}} {{passProductInfo.name}}</h2>
             <p>Product Code: <i>{{passProductInfo.productCode}}</i></p>
@@ -20,7 +27,14 @@
             </p>
             <label>Quantity: </label>
             <input type="text" value="1">
-            <button type="button" class="btn btn-default cart">Add to cart</button>
+            <div *ngIf="passProductInfo.quantity === 0; then ngOut else ngIn"></div>
+
+            <ng-template #ngIn>
+                <button type="button" class="btn btn-default cart" (click)="addToCart(passProductInfo)"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+            </ng-template>
+            <ng-template #ngOut>
+                <button type="button" class="btn btn-default cart" disabled><i class="fas fa-shopping-cart"></i> Add to cart</button>
+            </ng-template>
         </div>
     </div>
 </div>

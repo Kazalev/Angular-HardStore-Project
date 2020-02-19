@@ -9,8 +9,7 @@ import { FeaturedProductsComponent } from './featured-products/featured-products
 import { ProductComponent } from './product/product.component';
 import { DetailsProductComponent } from './details-product/details-product.component';
 import { ShortenPipe } from './shorten.pipe';
-
-
+import { Ng2SearchPipeModule } from 'node_modules/ng2-search-filter/ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,8 @@ import { ShortenPipe } from './shorten.pipe';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   exports: [
     AddProductComponent,

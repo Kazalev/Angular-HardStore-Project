@@ -4,5 +4,9 @@
         "angularfire",
         "firestore",
         "module"
+    ],
+    "cSpell.words": [
+        "newarrival",
+        "toastr"
     ]
 }
