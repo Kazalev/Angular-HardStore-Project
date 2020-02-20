@@ -31,6 +31,8 @@ import { Ng2SearchPipeModule } from 'node_modules/ng2-search-filter/ng2-search-f
     ProductTDComponent,
   ],
   imports: [
+    // BrowserAnimationsModule, // required animations module
+    // ToastrModule.forRoot(), // ToastrModule added
     BrowserModule,
     AuthModule,
     CoreModule,
@@ -42,7 +44,7 @@ import { Ng2SearchPipeModule } from 'node_modules/ng2-search-filter/ng2-search-f
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
   ],
   providers: [LinkGuardGuard],
   bootstrap: [AppComponent]

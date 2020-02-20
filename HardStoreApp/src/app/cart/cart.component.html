@@ -1,5 +1,5 @@
 <div class="container">
-    <table id="cart" class="table table-hover table-condensed">
+    <table #table id="cart" class="table table-hover table-condensed">
         <thead>
             <tr>
                 <th style="width:50%">Product</th>
@@ -13,37 +13,39 @@
                     <app-product-td [product]="product"></app-product-td>
                 </div> -->
         <!-- <app-product-td [product]="passProductInfo"></app-product-td> -->
-        <tbody *ngFor="let product of addedProducts">
-            <tr>
-                <td data-th="Product">
-                    <div class="row">
-                        <div class="col-sm-2 hidden-xs">
-                            <img src="{{passProductInfo.imgURL}}" alt="{{passProductInfo.name}}" class="img-responsive"
-                                style="width: 100px; height: 100px;" />
+            <tbody *ngFor="let passProductInfo of addedProducts">
+                <tr>
+                    <td data-th="Product">
+                        <div class="row">
+                            <div class="col-sm-2 hidden-xs">
+                                <img src="{{passProductInfo.imgURL}}" alt="{{passProductInfo.name}}"
+                                    class="img-responsive" style="width: 100px; height: 100px;" />
+                            </div>
+                            <div class="col-sm-10">
+                                <h4 class="nomargin">{{passProductInfo.name}}</h4>
+                            </div>
                         </div>
-                        <div class="col-sm-10">
-                            <h4 class="nomargin">{{passProductInfo.name}}</h4>
-                        </div>
-                    </div>
-                </td>
-                <td data-th="Price">{{passProductInfo.price}} лв.</td>
-                <td data-th="Quantity">
-                    <input type="number" name="quantityToBuy" [(ngModel)]="quantityToBuy"
-                        class="form-control text-center">
-                </td>
-                <td data-th="Subtotal" class="text-center">{{passProductInfo.price * quantityToBuy}} лв.</td>
-                <td class="actions" data-th="">
-                    <button class="btn btn-info btn-sm mr-2"><i class="fa fa-refresh"></i></button>
-                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-                </td>
-            </tr>
-        </tbody>
+                    </td>
+                    <td data-th="Price">{{passProductInfo.price}} лв.</td>
+                    <td data-th="Quantity">
+                        <input type="number" [(ngModel)]="quantityToBuy" class="form-control text-center">
+                    </td>
+                    <td data-th="Subtotal" class="text-center">{{ (passProductInfo.price * quantityToBuy).toFixed(2) }}
+                        лв.
+                    </td>
+                    <td class="actions" data-th="">
+                        <button class="btn btn-info btn-sm mr-2"><i class="fa fa-refresh"></i></button>
+                        <button class="btn btn-danger btn-sm" (click)="removeFromCart(passProductInfo)"><i
+                                class="fa fa-trash-o"></i></button>
+                    </td>
+                </tr>
+            </tbody>
         <tfoot>
             <tr>
                 <td><a routerLink="/products" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue
                         Shopping</a></td>
                 <td colspan="2" class="hidden-xs"></td>
-                <td class="hidden-xs text-center"><strong>Total {{passProductInfo.price * quantityToBuy}} лв.</strong></td>
+                <td class="hidden-xs text-center"><strong>Total {{totalSum}} лв.</strong></td>
                 <td><button (click)="checkOut(quantityToBuy, passProductInfo)" class="btn btn-success btn-block"
                         style="width: 150px;">Checkout <i class="fa fa-angle-right"></i></button></td>
             </tr>

@@ -91,6 +91,7 @@ export class AuthService {
 
   logout() {
     return this.afAuth.auth.signOut().then(() => {
+      sessionStorage.clear();
       this.router.navigate(['/']);
     }).catch(err => {
       console.log(err);

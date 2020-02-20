@@ -3,6 +3,8 @@ import { Product } from '../models/products';
 import { ProductsService } from '../services/products.service';
 import { AuthService } from 'src/app/auth/auth.service';
 
+const itemsInCart = [];
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -15,6 +17,7 @@ export class ProductComponent implements OnInit {
   updateState: boolean = false;
   productToUpdate: Product;
   passProductInfo: any;
+  //itemsInCart: Array<object>;
 
   constructor(
     private productService: ProductsService,
@@ -61,6 +64,9 @@ export class ProductComponent implements OnInit {
 
   addToCart(passProductInfo: Product) {
     this.productService.changeMessage(passProductInfo);
+
+    itemsInCart.push(passProductInfo);
+    sessionStorage.setItem('itemsInCart', JSON.stringify(itemsInCart));
   }
 
   newProductInfo(passProductInfo) {

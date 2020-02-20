@@ -1,8 +1,18 @@
-<div class="container" style="background-color: lightgrey;">
-    <p>Logged in as: {{user?.displayName}}</p>
-    <p>User ID: {{user?.uid}}</p>
-    <p>User Email: {{user?.email}}</p>
+<div class="container">
+    <div class="row">
+        <div class="userImg">
+            <img src="https://cdn.onlinewebfonts.com/svg/img_365985.png" class="img-circle" width="200px"
+                height="200px">
+        </div>
 
-    <button class="custom-button btn btn-success mr-2" routerLink="/addProduct">Add Product</button>
-    <button class="custom-button btn btn-danger mr-2" (click)="logout()">Logout</button>
+        <div class="userInfo">
+            <h3>Full Name: {{user?.displayName}}</h3>
+            <h6>User Email: {{user?.email}}</h6>
+            <h6>User ID: {{user?.uid}}</h6>
+            <h6>Address: </h6>
+
+            <button class="custom-button btn btn-success mr-2" routerLink="/addProduct">Add Product</button>
+            <button class="custom-button btn btn-danger mr-2" (click)="logout()">Logout</button>
+        </div>
+    </div>
 </div>
