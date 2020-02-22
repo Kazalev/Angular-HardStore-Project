@@ -12,6 +12,7 @@ import { ProductsService } from '../services/products.service';
 })
 export class AllProductsComponent implements OnInit {
   searchText;
+
   productsCollection: AngularFirestoreCollection<Product>;
 
   constructor(private productService: ProductsService) { }

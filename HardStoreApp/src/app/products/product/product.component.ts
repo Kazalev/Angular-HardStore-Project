@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../models/products';
 import { ProductsService } from '../services/products.service';
 import { AuthService } from 'src/app/auth/auth.service';
+import { Router } from '@angular/router';
 
 const itemsInCart = [];
 
@@ -21,7 +22,8 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private productService: ProductsService,
-    private userService: AuthService) { }
+    private userService: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
     this.productService.currentPassProductInfo.subscribe(passProductInfo => this.passProductInfo = passProductInfo);
@@ -63,10 +65,15 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(passProductInfo: Product) {
-    this.productService.changeMessage(passProductInfo);
+    if(!this.user){
+      this.router.navigate(["/register"]);
+    } else {
+      this.productService.changeMessage(passProductInfo);
+  
+      itemsInCart.push(passProductInfo);
+      sessionStorage.setItem('itemsInCart', JSON.stringify(itemsInCart));
+    }
 
-    itemsInCart.push(passProductInfo);
-    sessionStorage.setItem('itemsInCart', JSON.stringify(itemsInCart));
   }
 
   newProductInfo(passProductInfo) {

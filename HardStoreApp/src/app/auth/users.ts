@@ -4,5 +4,6 @@ export interface Users {
     lastName?: string,
     age?: number,
     address?: string,
+    photoURL?: string,
     role?: string
 }

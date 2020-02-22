@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class ProfileComponent implements OnInit {
   user: firebase.User;
+  allUsers: any;
 
   constructor(private auth: AuthService) { }
 
@@ -16,6 +17,12 @@ export class ProfileComponent implements OnInit {
       .subscribe(user => {
         this.user = user;
       });
+    
+    // this.auth.getUsers().subscribe(allUsers => {
+    //   this.allUsers = allUsers;
+    //   console.log(allUsers);
+    // });
+    
   }  
 
   logout(){

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="userImg">
-            <img src="https://cdn.onlinewebfonts.com/svg/img_365985.png" class="img-circle" width="200px"
+            <img src="{{user?.photoURL}}" class="img-circle" width="200px"
                 height="200px">
         </div>
 
@@ -11,7 +11,7 @@
             <h6>User ID: {{user?.uid}}</h6>
             <h6>Address: </h6>
 
-            <button class="custom-button btn btn-success mr-2" routerLink="/addProduct">Add Product</button>
+            <button class="custom-button btn btn-success mr-2" *ngIf="user?.email === 'kristian.kazalev@abv.bg' " routerLink="/addProduct">Add Product</button>
             <button class="custom-button btn btn-danger mr-2" (click)="logout()">Logout</button>
         </div>
     </div>

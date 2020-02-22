@@ -66,12 +66,14 @@ export class AuthService {
         console.log(userCredential);
 
         userCredential.user.updateProfile({
-          displayName: user.firstName + ' ' + user.lastName
+          displayName: user.firstName + ' ' + user.lastName,
+          photoURL: user.photoURL
         });
 
         this.insertUserData(userCredential)
           .then(() => {
             this.router.navigate(['/']);
+            console.log('Profile updated successfully!')
           });
       }).catch(err => {
         console.log(err);
@@ -85,6 +87,7 @@ export class AuthService {
       lastName: this.newUser.lastName,
       age: this.newUser.age,
       address: this.newUser.address,
+      photoURL: this.newUser.photoURL,
       role: 'network user'
     })
   }

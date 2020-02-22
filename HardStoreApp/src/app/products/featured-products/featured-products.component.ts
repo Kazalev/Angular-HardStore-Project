@@ -15,8 +15,7 @@ export class FeaturedProductsComponent implements OnInit {
   products: Product[];
   updateState: boolean = false;
   productToUpdate: Product;
-  @Input('searchText')
-  searchText;
+  @Input('searchText') searchText;
 
   constructor(private productService: ProductsService) { }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products/services/products.service';
 import { Product } from '../products/models/products';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -9,13 +10,14 @@ import { Product } from '../products/models/products';
 })
 export class CartComponent implements OnInit {
 
-  passProductInfo: Product;
   addedProducts: Array<string> = [];
-  quantityToBuy: number = 1;
+  quantityToBuy: number;
   itemsInCart: any;
-  totalSum: number;
+  product: Product;
 
-  constructor(private productService: ProductsService) { }
+  constructor(
+      private productService: ProductsService,
+      private router: Router) { }
 
   ngOnInit() {
     // this.productService.currentPassProductInfo
@@ -29,15 +31,23 @@ export class CartComponent implements OnInit {
     this.addedProducts = JSON.parse(this.itemsInCart);
   }
 
-  checkOut(quantityToBuy, product: Product) {
-    console.log(product);
-    
-    product.quantity -= quantityToBuy;
-    this.productService.editProduct(product);
+  checkOut(quantityToBuy, addedProducts) {
+    console.log(quantityToBuy);
+    console.log(addedProducts);
+    addedProducts.forEach((product) => {
+      console.log(product.quantity);  
+      product.quantity -= quantityToBuy;
+    });
+    // product.quantity -= quantityToBuy;
+    // this.productService.editProduct(product);
   }
 
   removeFromCart() {
-    sessionStorage.removeItem('itemsInCart');
+    let isConfirmed = confirm('This will discharge all items in Cart! Are you Sure?');
+    if(isConfirmed){
+      sessionStorage.removeItem('itemsInCart');
+      this.router.navigate(['/']);
+    }
   }
 
 }

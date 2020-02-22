@@ -2,24 +2,33 @@
     <div class="row">
         <div class="col"></div>
         <div class="col-7">
-            <form #ngForm (ngSubmit)="updateProduct(passProductInfo)">
+            <form #updatedProductsForm="ngForm" (ngSubmit)="updateProduct(passProductInfo)">
                 <label>Product Name</label>
-                <input class="form-control mb-2" type="text" name="name" placeholder="Name"
-                    value="{{passProductInfo.name}}" [(ngModel)]="passProductInfo.name">
+                <input class="form-control mb-2" type="text" name="name" #name="ngModel" placeholder="Name"
+                    value="{{passProductInfo.name}}" [(ngModel)]="passProductInfo.name" required>
+                <p class="error-message" *ngIf="name.invalid && name.touched">Please Enter Product Name!
+                </p>
                 <label>Select Category</label>
-                <select class="form-control mb-2" id="exampleSelect1" name="category"
-                    value="{{passProductInfo.category}}" [(ngModel)]="passProductInfo.category">
+                <select class="form-control mb-2" id="exampleSelect1" #selectCat="ngModel" name="category"
+                    value="{{passProductInfo.category}}" [(ngModel)]="passProductInfo.category" required>
                     <option>Please select category</option>
                     <option value="Processors">Processors</option>
                     <option value="Video Cards">Video Cards</option>
                     <option value="Monitors">Monitors</option>
                     <option value="Storage">Storage</option>
-                    <option value="RAM">RAM</option>
+                    <option value="Read Only Memory">Read Only Memory</option>
                     <option value="Smartphones">Smartphones</option>
+                    <option value="Peripherals">Peripherals</option>
                 </select>
+                <p class="error-message" *ngIf="selectCat.invalid && selectCat.touched">Please Select Category!
+                </p>
                 <label for="description">Additional Information</label>
-                <textarea class="form-control mb-2" id="exampleFormControlTextarea1" rows="3" name="description"
-                    value="{{passProductInfo.description}}" [(ngModel)]="passProductInfo.description"></textarea>
+                <textarea class="form-control mb-2" id="exampleFormControlTextarea1" rows="3" #description="ngModel"
+                    name="description" value="{{passProductInfo.description}}" [(ngModel)]="passProductInfo.description"
+                    required></textarea>
+                <p class="error-message" *ngIf="description.invalid && description.touched">Please enter description
+                    more than 20 symbols!
+                </p>
                 <label>Brand</label>
                 <input class="form-control" type="text" #brand="ngModel" placeholder="Samsung, Huawei... etc."
                     [(ngModel)]="passProductInfo.brand" name="brand" required>
@@ -33,15 +42,26 @@
                     Please Enter a Product Code!
                 </p>
                 <label>Image URL</label>
-                <input class="form-control mb-2" type="text" placeholder="Paste URL here..." name="imgURL"
-                    value="{{passProductInfo.imgURL}}" [(ngModel)]="passProductInfo.imgURL">
+                <input class="form-control mb-2" type="text" placeholder="Paste URL here..." #imgUrl="ngModel"
+                    name="imgURL" value="{{passProductInfo.imgURL}}" [(ngModel)]="passProductInfo.imgURL" required>
+                <p class="error-message" *ngIf="imgUrl.invalid && imgUrl.touched">
+                    Please provide valid URL
+                </p>
                 <label>Quantity</label>
-                <input class=" form-control mb-2" type="number" placeholder="Quantity" name="quantity"
-                    value="{{passProductInfo.quantity}}" [(ngModel)]="passProductInfo.quantity">
+                <input class=" form-control mb-2" type="number" placeholder="Quantity" #quantity="ngModel"
+                    name="quantity" value="{{passProductInfo.quantity}}" [(ngModel)]="passProductInfo.quantity"
+                    required>
+                <p class="error-message" *ngIf="quantity.invalid && quantity.touched">
+                    Please Enter Quantity!
+                </p>
                 <label>Price</label>
-                <input class="form-control mb-2" type="number" placeholder="Price" name="price"
-                    value="{{passProductInfo.price}}" [(ngModel)]="passProductInfo.price">
-                <button [disabled]="ngForm.invalid" type="submit" value="Update" class="btn btn-primary">Update</button>
+                <input class="form-control mb-2" type="number" placeholder="Price" #price="ngModel" name="price"
+                    value="{{passProductInfo.price}}" [(ngModel)]="passProductInfo.price" required>
+                <p class="error-message" *ngIf="price.invalid && price.touched">
+                    Please Enter Price!
+                </p>
+                <button [disabled]="updatedProductsForm.invalid" type="submit" value="Update"
+                    class="btn btn-primary">Update</button>
             </form>
         </div>
         <div class="col"></div>

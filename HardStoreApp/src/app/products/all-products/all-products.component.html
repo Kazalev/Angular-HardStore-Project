@@ -4,13 +4,14 @@
             <h4>Search for Products:</h4>
             <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
             <h4>Sort By Category:</h4>
-            <select class="form-control" type="text" name="search" [(ngModel)]="searchText">
-                <option value="Processors">Processors</option>
-                <option value="Video Cards">Video Cards</option>
-                <option value="Monitors">Monitors</option>
-                <option value="Storage">Storage</option>
-                <option value="RAM">RAM</option>
-                <option value="Smartphones">Smartphones</option>
+            <select class="form-control" type="text" name="searchText" [(ngModel)]="searchText">
+                <option>Processors</option>
+                <option>Video Cards</option>
+                <option>Monitors</option>
+                <option>Storage</option>
+                <option>Read Only Memory</option>
+                <option>Smartphones</option>
+                <option>Peripherals</option>
             </select>
             <!-- <h4>Price range:</h4>
             <input type="range" class="custom-range" min="50" max="3000" step="50" [(ngModel)]="searchText"> -->
