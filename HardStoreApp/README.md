@@ -2,19 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
 
-##Idea
+## Idea
 
 HardStore Tis simple Angular Project Created for SoftUni Front-End Frameworks course. It represents e-commerce web site for hardware and periphery products!
 
-##Public part
+## Public part
 
 Anonymus user
-	* User can search for Product, Brand and Category.
-	* User can see details for products.
-	* User has access to register page.
-	* User has access to login page.
+	*User can search for Product, Brand and Category.
+	*User can see details for products.
+	*User has access to register page.
+	*User has access to login page.
 
-##Private part
+## Private part
 
 Authorized user
 	* User can add products in cart.
@@ -22,18 +22,18 @@ Authorized user
 	* If user has the right he can edit products also delte them.
 
 
-##Structure
+## Structure
 
-*Home
-*Products
-*Profile
-*Favorites(soon)
-*MyCart
-*Login
-*Register
-*Logout
+* Home
+* Products
+* Profile
+* Favorites(soon)
+* MyCart
+* Login
+* Register
+* Logout
 
-##Back-End
+## Back-End
 **To store our data we use Firebase API**
 
 
