@@ -9,7 +9,8 @@ HardStore is simple Angular Project Created for SoftUni Front-End Frameworks cou
 ## Public part
 
 **Anonymus user**
-	* User can search for Product, Brand and Category.
+
+	*User can search for Product, Brand and Category.
 	* User can see details for products.
 	* User has access to register page.
 	* User has access to login page.
@@ -17,7 +18,7 @@ HardStore is simple Angular Project Created for SoftUni Front-End Frameworks cou
 ## Private part
 
 **Authorized user**
-	* User can add products in cart.
+	*User can add products in cart.
 	* User has access to his Profile page.
 	* If user has the right he can edit products also delte them.
 
