@@ -15,7 +15,6 @@ export class DetailsProductComponent implements OnInit {
 
   passProductInfo: any;
   user: firebase.User;
-
   
   constructor(
     private productService: ProductsService,
@@ -40,7 +39,7 @@ export class DetailsProductComponent implements OnInit {
     this.productService.changeMessage(passProductInfo);
   }
 
-  addToCart(passProductInfo: Product) {
+  addToCart(passProductInfo: Product) {    
     if(!this.user){
       this.router.navigate(["/register"]);
     } else {

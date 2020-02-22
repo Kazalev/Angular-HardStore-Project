@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ProductsService } from '../products/services/products.service';
 import { Product } from '../products/models/products';
 import { Router } from '@angular/router';
@@ -9,9 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-
   addedProducts: Array<string> = [];
-  quantityToBuy: number;
+  quantityToBuy: number = 1;
   itemsInCart: any;
   product: Product;
 
@@ -26,20 +25,24 @@ export class CartComponent implements OnInit {
     //     this.addedProducts.push(passProductInfo);
     //     console.log(this.addedProducts);
     //   });
+    console.log(this.quantityToBuy);
 
     this.itemsInCart = sessionStorage.getItem('itemsInCart');
     this.addedProducts = JSON.parse(this.itemsInCart);
   }
 
   checkOut(quantityToBuy, addedProducts) {
-    console.log(quantityToBuy);
+    if(!addedProducts){
+      alert();
+    }
     console.log(addedProducts);
     addedProducts.forEach((product) => {
       console.log(product.quantity);  
       product.quantity -= quantityToBuy;
+      this.productService.editProduct(product);
+      sessionStorage.removeItem('itemsInCart');
     });
     // product.quantity -= quantityToBuy;
-    // this.productService.editProduct(product);
   }
 
   removeFromCart() {

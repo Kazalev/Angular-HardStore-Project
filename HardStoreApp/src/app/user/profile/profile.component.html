@@ -9,7 +9,6 @@
             <h3>Full Name: {{user?.displayName}}</h3>
             <h6>User Email: {{user?.email}}</h6>
             <h6>User ID: {{user?.uid}}</h6>
-            <h6>Address: </h6>
 
             <button class="custom-button btn btn-success mr-2" *ngIf="user?.email === 'kristian.kazalev@abv.bg' " routerLink="/addProduct">Add Product</button>
             <button class="custom-button btn btn-danger mr-2" (click)="logout()">Logout</button>
