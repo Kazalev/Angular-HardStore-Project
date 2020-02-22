@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestoreCollection, AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Product } from '../models/products';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { ProductsService } from '../services/products.service';
 
 @Component({
