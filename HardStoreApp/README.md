@@ -27,7 +27,6 @@ HardStore is simple Angular Project Created for SoftUni Front-End Frameworks cou
 * Home
 * Products
 * Profile
-* Favorites (soon)
 * MyCart
 * Login
 * Register
